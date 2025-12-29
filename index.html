@@ -21,37 +21,39 @@
     text-align: center;
   }
 
-  .date {
-    font-size: 120px;
-    font-weight: 700;
+  .year {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0.8;
   }
 
-  .weekday {
-    font-size: 60px;
-    margin-top: 20px;
-    opacity: 0.8;
+  .date {
+    font-size: 140px;
+    font-weight: 700;
   }
 </style>
 </head>
 
 <body>
   <div class="container">
+    <div class="year" id="year"></div>
     <div class="date" id="date"></div>
-    <div class="weekday" id="weekday"></div>
   </div>
 
 <script>
   const now = new Date();
 
-  const date = now.getFullYear() + " / " +
-    (now.getMonth() + 1) + " / " +
-    now.getDate();
+  const year = now.getFullYear() + "年";
+  const month = now.getMonth() + 1;
+  const day = now.getDate();
 
   const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
-  const weekday = weekdays[now.getDay()] + "曜日";
+  const weekday = weekdays[now.getDay()];
 
+  const date = month + "月" + day + "日(" + weekday + ")";
+
+  document.getElementById("year").textContent = year;
   document.getElementById("date").textContent = date;
-  document.getElementById("weekday").textContent = weekday;
 </script>
 </body>
 </html>
