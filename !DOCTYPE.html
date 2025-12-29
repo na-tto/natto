@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>今日の日付</title>
+<style>
+  body {
+    margin: 0;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  #date {
+    font-size: 18vw;
+    font-weight: bold;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div id="date"></div>
+
+  <script>
+    function updateDate() {
+      const now = new Date();
+      const month = now.getMonth() + 1;
+      const day = now.getDate();
+      const week = ["日","月","火","水","木","金","土"][now.getDay()];
+      document.getElementById("date").innerHTML =
+        `${month}月${day}日<br>${week}曜日`;
+    }
+    updateDate();
+    setInterval(updateDate, 60000);
+  </script>
+</body>
+</html>
