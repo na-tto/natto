@@ -1,12 +1,57 @@
 <!doctype html>
-<html>
+<html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>Date</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Today</title>
+
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .date {
+    font-size: 120px;
+    font-weight: 700;
+  }
+
+  .weekday {
+    font-size: 60px;
+    margin-top: 20px;
+    opacity: 0.8;
+  }
+</style>
 </head>
+
 <body>
-<div style="font-size:120px;text-align:center;">
-2025/12/29
-</div>
+  <div class="container">
+    <div class="date" id="date"></div>
+    <div class="weekday" id="weekday"></div>
+  </div>
+
+<script>
+  const now = new Date();
+
+  const date = now.getFullYear() + " / " +
+    (now.getMonth() + 1) + " / " +
+    now.getDate();
+
+  const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
+  const weekday = weekdays[now.getDay()] + "曜日";
+
+  document.getElementById("date").textContent = date;
+  document.getElementById("weekday").textContent = weekday;
+</script>
 </body>
 </html>
